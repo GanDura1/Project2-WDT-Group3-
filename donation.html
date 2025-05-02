@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Charity & Fundraising</title>
+    <link rel="stylesheet" href="style.css">
+			<link href="mobile.css" rel="stylesheet" type="text/css" />
+<link href="desktop.css" rel="stylesheet" type="text/css" />
+	<style>
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #33CEFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 5;
+}
+
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+		
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+</style>
+</head>
+<body>
+ <section>
+        <div class="involvement-option">
+            <h2>Donate</h2>
+            <p>Your donations help us provide essential support to those in need.</p>
+			
+        </div>
+		
+		<form id="contactForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+		
+		<label for="reason">Donation Method:</label><br>
+		  <select id="reason" name="reason">
+			<option value="">--Please choose an option--</option>
+			<option value="Touch n Go E Wallet">Touch n Go E Wallet</option>
+			<option value="Maybank">Maybank</option>
+			<option value="CIMB Bank">CIMB Bank</option>
+			<option value="Other Bank">Other Bank</option>
+		  </select><br><br>
+		  
+		  <label for="donatin amount">Donatin Amount:</label><br>
+        <input type="text" id="donatin amount" name="donatin amount" required><br><br>
+
+        <label for="message"> bank Detail(mention about donation details):</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required ></textarea><br><br>
+
+        <label for="date">Preferred Contact Date(fill):</label><br>
+        <input type="date" id="date" name="date"><br><br>
+
+        <button type="submit">Send Message</button>
+
+    <p id="errorMsg" style="color: red; font-weight: bold; display: none; margin-top: 10px;">
+            Please fill in all the fields before sending.
+        </p>
+    </form>
+</section>
+
+</div>
+
+<script>
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+	const reason = document.getElementById("reason").value.trim();
+	const donatin amount = document.getElementById("donatin amount").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    // Check if any of the fields are empty
+    if (name === "" || email === "" || reason === "" || donatin amount === "" || message === "" || date === "") {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Please fill all the fields correctly.";
+        return false;
+    }
+
+    // Check if message length is less than 10 characters
+    if (message.length < 10) {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Bank details must be at least 10 characters.";
+        return false;
+    }
+
+    // Check if date is not selected
+    if (date === "") {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Please select a date before submitting.";
+        return false;
+    }
+
+    // If everything is valid
+    errorMsg.style.display = "none"; // Hide error message
+    alert("Money sent successfully!"); // Replace with your actual message submission logic
+    return true;
+}
+</script>
+</body>
+</html>

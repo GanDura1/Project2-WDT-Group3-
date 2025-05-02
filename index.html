@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hope for All - Charity</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./mobile.css" />
+  <link rel="stylesheet" href="./desktop.css" />
+  <style>
+    .banner img {
+      width: 60%;
+      display: none;
+      height: 400px;
+      object-fit: cover;
+      margin: 20px auto;
+    }
+    .banner img.active {
+      display: block;
+    }
+  </style>
+</head>
+<body onload="welcomeMessage()">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./campaigns.html">Campaigns</a></li>
+        <li><a href="./get-involved.html">Get Involved</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <!-- Slideshow Images -->
+    <img src="./banner1.png" class="slide active" alt="Slide 1" />
+    <img src="./banner2.png" class="slide" alt="Slide 2" />
+    <img src="./banner3.png" class="slide" alt="Slide 3" />
+
+    <h1>Welcome to Our Charity</h1>
+    <h1>Making the world a better place, one step at a time.</h1>
+    <h1>Join Us in Making a Difference</h1>
+  </section>
+
+  <section class="introduction">
+    <h2>Who We Are</h2>
+    <p>We are a non-profit organization dedicated to helping communities through various fundraising campaigns and charity events.</p>
+    <h2>Welcome to Hope for All</h2>
+    <p>We are a non-profit organization dedicated to helping underprivileged communities through food aid, education, and healthcare services.</p>
+  </section>
+
+  <!-- JavaScript starts here -->
+  <script>
+    // Alert message when page loads
+    function welcomeMessage() {
+      alert("Welcome to Hope for All Charity Website!");
+    }
+
+    // Simple slideshow logic
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlides() {
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+      });
+
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+
+      slides[slideIndex - 1].classList.add('active');
+      setTimeout(showSlides, 3000); // change every 3 seconds
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hope for All - Charity</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./mobile.css" />
+  <link rel="stylesheet" href="./desktop.css" />
+		<style>
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #DCDBDB;
+ margin: 5;
+}
+
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+				<li><a href="./about.html">About Us</a></li>
+				<li><a href="./campaigns.html">Campaigns</a></li>
+				<li><a href="./get-involved.html">Get Involved</a></li>
+				<li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+	
+    
+    <section class="contact">
+        <h1>Contact Us</h1>
+		<h2>We’d Love to Hear From You</h2>
+    <p>Whether you want to volunteer, donate, or learn more about our work, reach out to us.</p>
+
+    <h3>Address:</h3>
+    <p>Permatang Pauh, Penang, Malaysia</p>
+
+    <h3>Phone:</h3>
+    <p>+60115005824</p>
+
+    <h3>Email:</h3>
+    <p>HopeforAll@charitywebsite.com</p>
+        <p>Have questions? Reach out to us using the form below.</p>
+        
+       <form id="contactForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+		
+		<label for="reason">Reason for Contact:</label><br>
+		  <select id="reason" name="reason">
+			<option value="">--Please choose an option--</option>
+			<option value="inquiry">Inquiry</option>
+			<option value="feedback">Feedback</option>
+			<option value="request">Request</option>
+			<option value="other">Other</option>
+		  </select><br><br>
+
+        <label for="message">Message(more than 10 characters):</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required ></textarea><br><br>
+
+        <label for="date">Preferred Contact Date(fill):</label><br>
+        <input type="date" id="date" name="date"><br><br>
+
+        <button type="submit">Send Message</button>
+
+    <p id="errorMsg" style="color: red; font-weight: bold; display: none; margin-top: 10px;">
+            Please fill in all the fields before sending.
+        </p>
+    </form>
+</section>
+
+</div>
+
+<script>
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+	const reason = document.getElementById("reason").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    // Check if any of the fields are empty
+    if (name === "" || email === "" || reason === "" || message === "" || date === "") {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Please fill all the fields correctly.";
+        return false;
+    }
+
+    // Check if message length is less than 10 characters
+    if (message.length < 10) {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Message must be at least 10 characters.";
+        return false;
+    }
+
+    // Check if date is not selected
+    if (date === "") {
+        errorMsg.style.display = "block";
+        errorMsg.innerText = "Please select a date before submitting.";
+        return false;
+    }
+
+    // If everything is valid
+    errorMsg.style.display = "none"; // Hide error message
+    alert("Message sent successfully!"); // Replace with your actual message submission logic
+    return true;
+}
+</script>
+</body>
+</html>
